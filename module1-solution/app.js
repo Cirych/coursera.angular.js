@@ -8,6 +8,7 @@
 	function LunchCheckController($scope) {
 		$scope.lunchMenu = "";
 		$scope.message = "";
+		$scope.color = "white";
 		$scope.check = function() {
 			var items = $scope.lunchMenu
 						.trim()
@@ -15,10 +16,10 @@
 						.filter(({length}) => length)
 						.length;
 			$scope.message = !items
-					?'Please enter data first'
-					:items < 4
+					?($scope.color = 'red', 'Please enter data first')
+					:($scope.color = 'green', items < 4
 						?'Enjoy!'
-						:'Too much!';
+						:'Too much!');
 		}
 	}
 })();
