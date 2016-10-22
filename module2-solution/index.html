@@ -36,7 +36,7 @@
 			<!-- To Buy List -->
 			<div class="col-md-6" ng-controller="ToBuyController as toBuy">
 				<h2>To Buy:</h2>
-				<ul>
+				<ul ng-cloak>
 					<li ng-repeat="item in toBuy.items">
 						Buy {{item.quantity}} {{item.name}}
 						<button class="btn btn-default" ng-click="toBuy.buyItem($index)">
