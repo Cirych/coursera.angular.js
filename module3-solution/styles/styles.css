@@ -6,7 +6,6 @@ input[type="text"] {
   float: left;
 }
 .narrow-button {
-  float: left;
   margin-left: 10px;
 }
 .loader {
@@ -58,4 +57,20 @@ input[type="text"] {
 .ng-cloak,
 .x-ng-cloak {
 			display: none !important;
+}
+
+ul {
+  list-style: none;
+  display: table;
+  border-collapse: collapse;
+  vertical-align: middle;
+}
+ul li {
+  display: table-row;
+}
+li span {
+  padding: 0 5px;
+  display: table-cell;
+  border: 1px solid grey;
+  vertical-align: middle;
 }
