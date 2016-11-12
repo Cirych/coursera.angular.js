@@ -113,6 +113,15 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+/* SIGNUP */
+input.ng-invalid {
+    border:1px solid red;
+}
+input.ng-valid {
+    border:1px solid green;
+}
+/* END SIGNUP */
+
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
