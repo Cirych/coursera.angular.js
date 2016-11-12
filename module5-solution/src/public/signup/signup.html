@@ -1,0 +1,85 @@
+<div class="container">
+	<div class="row">
+		<form name="signUpForm" novalidate>
+			<div class="form-group">
+				<label for="firstName">First Name</label>
+				<input
+					type="text"
+					name="firstName"
+					class="form-control"
+					ng-model="ctrl.userinfo.firstName"
+					minlength="2"
+					ng-required="true">
+				<span ng-if="(signUpForm.firstName.$error.required || signUpForm.firstName.$error.minlength) && signUpForm.firstName.$touched">
+					At least 2 characters long first name is required!
+				</span>
+			</div>
+			<div class="form-group">
+				<label for="lastName">Last Name</label>
+				<input
+					type="text"
+					name="lastName"
+					class="form-control"
+					ng-model="ctrl.userinfo.lastName"
+					minlength="2"
+					ng-required="true">
+				<span ng-if="(signUpForm.lastName.$error.required || signUpForm.lastName.$error.minlength) && signUpForm.lastName.$touched">
+					At least 2 characters long last name is required!
+				</span>
+			</div>
+			<div class="form-group">
+				<label for="email">E-Mail</label>
+				<input
+					type="email"
+					name="email"
+					class="form-control"
+					ng-model="ctrl.userinfo.email"
+					ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/"
+					ng-required="true">
+				<span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+					Valid email address must be like abc@example.com!
+				</span>
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone Number</label>
+				<input
+					type="text"
+					name="phone"
+					class="form-control"
+					ng-model="ctrl.userinfo.phone"
+					pattern="(\d{3})-(\d{3})-(\d{4})"
+					placeholder="Phone ###-###-####"
+					ng-required="true">
+				<span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+					Valid phone number must be like ###-###-####!
+				</span>
+			</div>
+			<div class="form-group">
+				<label for="favorite">My Favorite Menu Item</label>
+				{{ctrl.userinfo.favoriteMenuItem.name}}
+				<input
+					type="text"
+					name="favorite"
+					class="form-control"
+					ng-model="ctrl.favorite"
+					ng-blur="ctrl.checkFavorite()"
+					ng-required="true">
+				<span ng-show="ctrl.favoriteNotFound">
+					No such menu number exists
+				</span>
+			</div>
+			<div class="form-group">
+				<button
+					type="submit"
+					class="btn btn-primary btn-block invert-color"
+					ng-click="ctrl.submit()"
+					ng-disabled="signUpForm.$invalid">
+					SAVE
+				</button>
+				<div ng-if="ctrl.saved">
+					Your information has been saved
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
